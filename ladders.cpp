@@ -7,7 +7,7 @@ int ladders(int n,int k,int dp[]){
 
     //Top down dp:
 
-    if(n==0) return 1;
+    if(n==0) return 1; //i.e we are at the ground level. So 1 way to reach the top.
 
     if(dp[n]!=0) return dp[n];
 
