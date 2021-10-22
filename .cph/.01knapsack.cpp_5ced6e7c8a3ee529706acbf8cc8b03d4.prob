@@ -1,1 +1,0 @@
-{"name":"Local: 01knapsack","url":"c:\\Users\\rauna\\Desktop\\Dynamic Programming\\01knapsack.cpp","tests":[{"id":1634837166039,"input":"1\n5 4\n8 4 0 5 3\n1 2 3 2 2","output":"13"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"c:\\Users\\rauna\\Desktop\\Dynamic Programming\\01knapsack.cpp","group":"local","local":true}
