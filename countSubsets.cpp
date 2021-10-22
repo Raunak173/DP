@@ -20,10 +20,9 @@ int count(int n,int sum,int a[]){
                 dp[i][j]=dp[i-1][j];
             }
         }
-
-        return dp[n][sum]; //Ans
     }
 
+        return dp[n][sum]; //Ans
 }
 
 int main(){
