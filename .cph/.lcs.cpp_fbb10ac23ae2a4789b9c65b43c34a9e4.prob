@@ -1,0 +1,1 @@
+{"name":"Local: lcs","url":"c:\\Users\\rauna\\Desktop\\Dynamic Programming\\lcs.cpp","tests":[{"id":1634985219274,"input":"1\n5 3\nabcde\nace","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"c:\\Users\\rauna\\Desktop\\Dynamic Programming\\lcs.cpp","group":"local","local":true}

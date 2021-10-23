@@ -1,56 +1,62 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int minCoins(int n,int coins[],int t,int dp[]){
+ // } Driver Code Ends
+class Solution{
 
-    //Base Case:
-    if(n==0) return 0;
+	public:
+	int minCoins(int coins[], int m, int v) 
+	{ 
+	    // Your code goes here
+	    int dp[m+1][v+1];
+	    for(int i=0;i<=m;i++){
+	        for(int j=0;j<=v;j++){
+	            if(i==0){
+	                dp[i][j]=INT_MAX-1; //To reduce some errors
+	            }
+	            if(j==0){
+	                dp[i][j]=0;
+	            }
+	        }
+	    }
+	    for(int i=1;i<=m;i++){
+	        for(int j=1;j<=v;j++){
+	            if(coins[i-1]<=j){
+	                dp[i][j]=min(1+dp[i][j-coins[i-1]],dp[i-1][j]);
+	            }
+	            else{
+	                dp[i][j]=dp[i-1][j];
+	            }
+	        }
+	    }
+	    
+	    return dp[m][v]==INT_MAX-1? -1: dp[m][v]; //Tocheck if it is possible or not
+	    
+	} 
+	  
+};
 
-     //Lookup in dp array:
-    if(dp[n]!=0){
-        return dp[n];
+// { Driver Code Starts.
+int main() 
+{
+   
+   
+   	int t;
+    cin >> t;
+    while (t--)
+    {
+        int v, m;
+        cin >> v >> m;
+
+        int coins[m];
+        for(int i = 0; i < m; i++)
+        	cin >> coins[i];
+
+      
+	    Solution ob;
+	    cout << ob.minCoins(coins, m, v) << "\n";
+	     
     }
-
-    //Recursive Case:
-    int ans=INT_MAX;
-    for(int i=0;i<t;i++){
-        if((n-coins[i])>=0){
-            int sp = minCoins(n-coins[i],coins,t,dp); //Ans of sub problem
-            ans=min(ans,sp+1);
-        } 
-    }
-    dp[n]=ans;
-    return dp[n];
-}
-
-//Bottom approach:
-
-int minCoinsBU(int n,int coins[],int t){
-    int dp[1000]={0};
-
-    //Iterate over all states:
-    for(int p=1;p<=n;p++){
-        dp[p]=INT_MAX;
-        for(int i=0;i<t;i++){
-            if((p-coins[i])>=0){
-                int sp = dp[p-coins[i]];
-                dp[p]=min(dp[p],sp+1);
-            }
-        }
-    }
-    return dp[n];
-}
-
-int main(){
-    int n;
-    cin>>n;
-    int coins[]={1,7,10};
-    int dp[1000]={0};
-    int t=sizeof(coins)/sizeof(int);
-
-    cout<<minCoins(n,coins,t,dp)<<endl;
-    cout<<minCoinsBU(n,coins,t)<<endl;
-
     return 0;
 }
-
+  // } Driver Code Ends
